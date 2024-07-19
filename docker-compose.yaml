@@ -7,6 +7,9 @@ services:
     environment:
       - TS_EXTRA_ARGS=--advertise-tags=tag:container
       - TS_STATE_DIR=/var/lib/tailscale
+    env_file:
+      - path: ./ts-authkey.env
+        required: false
     volumes:
       - ts-state:/var/lib/tailscale
       - /dev/net/tun:/dev/net/tun
